@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: xotomicro-front-order-service
+  name: xotomicro-front-order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: xotomicro-front-order-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: xotomicro-front-order-service
+    spec:
+      containers:
+        - image: xotomicro-front-order-service
+          imagePullPolicy: IfNotPresent
+          name: xotomicro-front-order-service
+          ports:
+            - containerPort: 80
+          resources: {}
+      restartPolicy: Always
+status: {}
