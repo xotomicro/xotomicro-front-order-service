@@ -1,13 +1,11 @@
 version: "3"
 services:
-  xotomicro-front-order-service:
-    env_file:
-      - token.env
-    build:
-      context: ./
-      dockerfile: docker/dockerfile.production
-    #   environment:
-    #     - GITHUB_TOKEN=${GITHUB_TOKEN}
-    container_name: xotomicro-front-order-service
-    ports:
-      - 7072:80
+    xotomicro-front-order-service:
+        build:
+            context: ./
+            dockerfile: docker/dockerfile.production
+            args:
+                - GITHUB_TOKEN=${GITHUB_TOKEN}
+        container_name: xotomicro-front-order-service
+        ports:
+            - 7072:80
